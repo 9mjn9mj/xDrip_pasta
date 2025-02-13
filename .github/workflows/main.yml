@@ -19,8 +19,6 @@ jobs:
       run: ./gradlew assembleDebug --no-daemon
 
 
-      - name: Clean Gradle Cache
-        run: rm -rf ~/.gradle
 
       - name: Checkout repository
         uses: actions/checkout@v4
