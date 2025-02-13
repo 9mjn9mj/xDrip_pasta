@@ -24,8 +24,8 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Build Android APK
+      - name: Build Android APK 
         run: |
+          # Clean and build both debug and release APKs
           ./gradlew clean assembleDebug assembleRelease
-          
-   
+  
