@@ -24,12 +24,8 @@ jobs:
           distribution: 'temurin'
           cache: gradle
 
-      - name: Build Android APK and zip
+      - name: Build Android APK
         run: |
-          # Clean and build both debug and release APKs
           ./gradlew clean assembleDebug assembleRelease
           
-          # Make sure the release APK file exists and zip both the debug and release APKs
-          zip ${{ env.ASSET_FILE_PATH }} \
-            ./app/app-debug.apk \
-            ./app/app-release*.apk
+   
