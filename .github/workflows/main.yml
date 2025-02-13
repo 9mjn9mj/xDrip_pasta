@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Build Debug APK
+      run: ./gradlew assembleDebug --no-daemon
+
+
       - name: Clean Gradle Cache
         run: rm -rf ~/.gradle
 
