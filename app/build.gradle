@@ -86,7 +86,8 @@ android {
             }
         }
     }
-
+    namespace "com.eveningoutpost.dexdrip"
+    
     defaultConfig {
         applicationId "com.eveningoutpost.dexdrip"
         minSdkVersion 24
