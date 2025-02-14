@@ -15,10 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Fix Gradle properties
-        run: |
-         sed -i '/MaxPermSize/d' gradle.properties
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -28,22 +24,12 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Remove Gradle Cache
-        run: rm -rf ~/.gradle
-
-      - name: Remove Gradle Wrapper Cache
-        run: rm -rf ~/.gradle/wrapper
-
-      - name: Set JAVA_HOME
-        run: echo "JAVA_HOME=/usr/lib/jvm/temurin-17-jdk-amd64" >> $GITHUB_ENV
-
-      - name: Check Java Version
-        run: java -version
+      - name: Fix Gradle properties
+        run: |
+          sed -i '/MaxPermSize/d' gradle.properties
 
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
       - name: Build Debug APK
         run: ./gradlew assembleDebug --no-daemon
-
-
