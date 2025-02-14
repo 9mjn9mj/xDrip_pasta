@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Fix Gradle properties
+        run: |
+         sed -i '/MaxPermSize/d' gradle.properties
+
       - name: Checkout repository
         uses: actions/checkout@v4
 
