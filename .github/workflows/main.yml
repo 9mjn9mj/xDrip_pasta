@@ -14,15 +14,15 @@ jobs:
         java-version: [ 11 ]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - uses: actions/setup-java@v3
+      - uses: actions/setup-java@v4
         with:
           java-version: ${{ matrix.java-version }}
           distribution: adopt
 
       - name: Run unit tests and assemble APKs
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v4
         with:
           arguments: assembleProdRelease testProdReleaseUnitTest
 
@@ -30,7 +30,7 @@ jobs:
         run: bash ./etc/CheckBuild/check-release.sh test
 
       - name: Upload APK as Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: built-apk
           path: app/build/outputs/apk/**/*.apk
