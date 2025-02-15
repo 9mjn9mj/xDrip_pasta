@@ -22,7 +22,7 @@ jobs:
           distribution: adopt
 
       - name: Run unit tests and assemble APKs
-        uses: gradle/gradle-build-action@v4
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: assembleProdRelease testProdReleaseUnitTest
 
