@@ -24,7 +24,7 @@ jobs:
           java-version: '17'
 
       - name: Remove MaxPermSize option from gradle.properties
-        run: sed -i '/MaxPermSize/d' android/gradle.properties
+        run: sed -i '/MaxPermSize/d' app/gradle.properties  # 수정된 파일 경로
 
       - name: Create init.gradle for Lombok
         run: |
