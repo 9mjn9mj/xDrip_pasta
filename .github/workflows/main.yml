@@ -23,9 +23,6 @@ jobs:
           distribution: 'adopt'
           java-version: '17'
 
-      - name: Remove MaxPermSize option from gradle.properties
-        run: sed -i '/MaxPermSize/d' app/gradle.properties  # 수정된 파일 경로
-
       - name: Create init.gradle for Lombok
         run: |
           echo "initscript {" > init.gradle
@@ -45,4 +42,4 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --init-script init.gradle --no-daemon
+        run: JAVA_TOOL_OPTIONS="-Xmx4g" ./gradlew build --init-script init.gradle --no-daemon
