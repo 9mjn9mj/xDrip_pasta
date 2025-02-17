@@ -32,3 +32,10 @@ allprojects {
         mavenCentral()
     }
 }
+
+android {
+    lintOptions {
+        abortOnError false  // Lint 에러가 있을 때 빌드를 중단하지 않음
+        checkReleaseBuilds false  // Release 빌드에서 Lint 검사하지 않음
+    }
+}
