@@ -50,5 +50,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: JAVA_TOOL_OPTIONS="--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED -Xmx4g" ./gradlew build --init-script init.gradle
+        env:
+          GRADLE_OPTS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED"
+        run: ./gradlew build --init-script init.gradle
 
