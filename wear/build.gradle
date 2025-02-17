@@ -112,9 +112,6 @@ allprojects {
     }
 }
 
-tasks.test {
-    jvmArgs '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
-}
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
