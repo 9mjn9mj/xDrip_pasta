@@ -60,3 +60,8 @@ jobs:
         with:
           name: built-apk
           path: app/build/outputs/apk/debug/app-debug.apk
+
+
+
+      - name: List APK Files
+        run: ls -R app/build/outputs/apk
