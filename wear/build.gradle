@@ -112,6 +112,10 @@ allprojects {
     }
 }
 
+test {
+    jvmArgs '--add-opens', 'java.base/java.lang=ALL-UNNAMED'
+}
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     compileOnly 'com.google.android.wearable:wearable:2.5.0'
