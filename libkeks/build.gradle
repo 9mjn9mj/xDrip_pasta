@@ -31,7 +31,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
             // Lint 검사 시 빌드를 중지하지 않음
-        abortOnError false
 
         // 특정 Lint 검사 비활성화
         disable 'MissingTranslation'
