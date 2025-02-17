@@ -55,12 +55,14 @@ jobs:
           GRADLE_OPTS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED -Xmx4g"
         run: ./gradlew assembleDebug --init-script init.gradle
 
-      - name: Upload APK
+
+
+      - name: Upload APKs
         uses: actions/upload-artifact@v4
         with:
-          name: built-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
-
+          name: built-apks
+          path: app/build/outputs/apk/**/*.apk
+          
 
 
       - name: List APK Files
