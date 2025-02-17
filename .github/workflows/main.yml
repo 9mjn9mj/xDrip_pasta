@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # ← 들여쓰기 수정 완료
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,6 +22,9 @@ jobs:
         with:
           distribution: 'adopt'
           java-version: '17'
+
+      - name: Remove MaxPermSize option from gradle.properties
+        run: sed -i '/MaxPermSize/d' android/gradle.properties
 
       - name: Create init.gradle for Lombok
         run: |
@@ -42,4 +45,4 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --init-script init.gradle
+        run: ./gradlew build --init-script init.gradle --no-daemon
