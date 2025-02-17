@@ -52,10 +52,3 @@ jobs:
       - name: Build with Gradle
         run: JAVA_TOOL_OPTIONS="-Xmx4g" ./gradlew build --init-script init.gradle 
 
-
-      - name: 빌드 결과 저장 (APK)
-        uses: actions/upload-artifact@v3
-        with:
-          name: xDrip-APK
-          path: app/build/outputs/apk/debug/app-debug.apk
-
