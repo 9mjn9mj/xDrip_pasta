@@ -108,7 +108,8 @@ public class UiBasedCollector extends NotificationListenerService {
         coOptedPackages.add("com.microtech.aidexx"); //for microtech china version
         coOptedPackages.add("com.ottai.tag"); // //for ottai china version
         coOptedPackages.add("com.senseonics.eversense365.us"); // Experiment
-
+        
+        coOptedPackages.add("com.kakaohealthcare.pasta"); // for pasta (kakaohealthcare)
         coOptedPackagesAll.add("com.kakaohealthcare.pasta"); // for pasta (kakaohealthcare)
         
         coOptedPackagesAll.add("com.dexcom.dexcomone"); 
