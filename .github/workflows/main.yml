@@ -51,6 +51,6 @@ jobs:
 
       - name: Build with Gradle
         env:
-          GRADLE_OPTS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED"
+          GRADLE_OPTS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED -Xmx4g"
         run: ./gradlew build --init-script init.gradle
 
