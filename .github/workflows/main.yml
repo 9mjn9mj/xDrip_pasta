@@ -37,6 +37,7 @@ jobs:
           echo "        }" >> init.gradle
           echo "    }" >> init.gradle
           echo "}" >> init.gradle
+
       - name: Gradle 캐시 설정
         uses: actions/cache@v3
         with:
@@ -49,8 +50,13 @@ jobs:
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
-      - name: Build with Gradle
+      - name: Build APK
         env:
           GRADLE_OPTS: "--add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.lang.reflect=ALL-UNNAMED -Xmx4g"
-        run: ./gradlew build --init-script init.gradle
+        run: ./gradlew assembleDebug --init-script init.gradle
 
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: built-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
