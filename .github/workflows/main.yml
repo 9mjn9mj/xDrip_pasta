@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-  workflow_dispatch:  # ← 들여쓰기 수정 (이제 제대로 인식됨)
+  workflow_dispatch:  # ← 들여쓰기 수정 완료
 
 jobs:
   build:
@@ -30,10 +30,8 @@ jobs:
           echo "        classpath files('etc/Lombok/lombok-giraffe.jar')" >> init.gradle
           echo "    }" >> init.gradle
           echo "}" >> init.gradle
-          echo "rootProject { it.buildscript.configurations.classpath.files.each { println it } }" >> init.gradle
-
-      - name: Grant execute permission for Gradle
-        run: chmod +x gradlew
-
-      - name: Build with Gradle
-   
+          echo "allprojects {" >> init.gradle
+          echo "    buildscript {" >> init.gradle
+          echo "        dependencies {" >> init.gradle
+          echo "            classpath files('etc/Lombok/lombok-giraffe.jar')" >> init.gradle
+       
