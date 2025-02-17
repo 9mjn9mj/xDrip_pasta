@@ -7,7 +7,7 @@ on:
   pull_request:
     branches:
       - main
-       workflow_dispatch:  # ← 수동 실행 버튼 추가
+  workflow_dispatch:  # ← 들여쓰기 수정 (이제 제대로 인식됨)
 
 jobs:
   build:
@@ -30,12 +30,10 @@ jobs:
           echo "        classpath files('etc/Lombok/lombok-giraffe.jar')" >> init.gradle
           echo "    }" >> init.gradle
           echo "}" >> init.gradle
-          echo "allprojects {" >> init.gradle
-          echo "    apply plugin: LombokPlugin" >> init.gradle
-          echo "}" >> init.gradle
+          echo "rootProject { it.buildscript.configurations.classpath.files.each { println it } }" >> init.gradle
 
       - name: Grant execute permission for Gradle
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build --init-script init.gradle
+   
